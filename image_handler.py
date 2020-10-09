@@ -1,9 +1,13 @@
 import pygame
 
 
-def get_player_sprite():
+def get_player_sprite(degree):
+
+
     player_sprite = pygame.image.load("images_src/frog.png")
     player_sprite = pygame.transform.scale(player_sprite, (40, 30))
+    #player_sprite = pygame.transform.flip(player_sprite, False, False)
+    player_sprite = pygame.transform.rotate(player_sprite, degree)
     return player_sprite
 
 

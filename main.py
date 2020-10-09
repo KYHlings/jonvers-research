@@ -4,15 +4,16 @@ from image_handler import get_player_sprite, get_background_image, get_mob_sprit
 pygame.init()
 
 
-class Player(pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-        self.image = get_player_sprite()
+#class Player(pygame.sprite.Sprite):
+#    def __init__(self):
+#       pygame.sprite.Sprite.__init__(self)
+#        self.image = get_player_sprite()
 
 
 def main():
     player_x = 400
     player_y = 570
+    player_degree = 0
     mob_x = 0
     mob_y = 350
     screen = pygame.display.set_mode((800, 600))
@@ -32,17 +33,21 @@ def main():
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT] and player_x > velocity:
             player_x -= velocity
+            player_degree = 90
         if keys[pygame.K_RIGHT] and player_x < 800 - 40 - velocity:
             player_x += velocity
+            player_degree = 270
         if keys[pygame.K_DOWN] and player_y < 600 - 30 - velocity:
             player_y += velocity
+            player_degree = 180
         if keys[pygame.K_UP] and player_y > velocity:
             player_y -= velocity
+            player_degree = 0
         if keys[pygame.K_ESCAPE]:
             running = False
 
-        screen.blit(get_mob_sprite(),(mob_x,mob_y))
-        screen.blit(get_player_sprite(), (player_x, player_y))
+        screen.blit(get_mob_sprite(), (mob_x, mob_y))
+        screen.blit(get_player_sprite(player_degree), (player_x, player_y))
         pygame.display.update()
 
 
