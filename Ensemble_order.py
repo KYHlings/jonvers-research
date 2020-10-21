@@ -22,14 +22,7 @@ def main():
     developer_ls = [Developer(developer_names[i], i % 2 == 0) for i in range(len(developer_names))]
     j = 0
     for i in range(len(developer_ls)):
-        print(f"{i+1}. Navigator: {developer_ls[j].name}", end=", ")
-        developer_ls[j].change_role()
-        if j == len(developer_ls)-1:
-            j = 0
-        else:
-            j += 1
-
-        print(f"Driver: {developer_ls[j].name}")
+        print(f"Driver: {developer_ls[i].name}")
         developer_ls[j].change_role()
         if j == len(developer_ls)-1:
             j = 0
