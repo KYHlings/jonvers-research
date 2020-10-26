@@ -17,7 +17,7 @@ class Developer:
 
 
 def main():
-    developer_names = ["Elizabeth", "David", "Daniel", "Jonathan", "Tobias"]
+    developer_names = ["David", "Daniel", "Jonathan", "Elizabeth", "Tobias"]
     shuffle(developer_names)
     developer_ls = [Developer(developer_names[i], i % 2 == 0) for i in range(len(developer_names))]
     j = 0
